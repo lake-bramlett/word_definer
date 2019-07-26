@@ -1,6 +1,6 @@
 class Definition
   attr_reader :id
-  attr_accessor :body, :word_id
+  attr_accessor :body, :word_id, :likes
 
   @@definitions = {}
   @@total_rows = 0
@@ -8,6 +8,7 @@ class Definition
   def initialize(attributes)
     @body = attributes.fetch(:body)
     @word_id = attributes.fetch(:word_id)
+    @likes = 0
     @id = id || @@total_rows += 1
   end
 
@@ -29,7 +30,6 @@ class Definition
     definitions_array = []
     @@definitions.values.each do |definition|
       if definition.word_id == id
-        puts "condition met"
         definitions_array.push(definition)
       end
     end
@@ -48,6 +48,10 @@ class Definition
 
   def delete
     @@definitions.delete(self.id)
+  end
+
+  def like
+    self.likes += 1
   end
 
   def word
