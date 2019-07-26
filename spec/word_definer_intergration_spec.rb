@@ -22,3 +22,13 @@ describe('create definition path', {:type => :feature}) do
     expect(page).to have_content("a large, semi-aquatic land mamman native to Africa.")
   end
 end
+
+describe('delete word path', {:type => :feature}) do
+  it('delets a pre-existing word') do
+    visit('/')
+    click_link('Hippopotamus')
+    click_link('Edit Word')
+    click_on('Delete word')
+    expect(page).to have_no_content("Hippopotamus")
+  end
+end
