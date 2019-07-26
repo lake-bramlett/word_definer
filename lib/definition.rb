@@ -3,10 +3,11 @@ class Definition
   attr_accessor :body
 
   @@definitions = {}
-  @@total_rows = {}
+  @@total_rows = 0
 
   def initialize(attributes)
     @body = attributes.fetch(:body)
+    @word_id = attributes.fetch(:word_id)
     @id = id || @@total_rows += 1
   end
 
@@ -27,11 +28,11 @@ class Definition
   def self.find_by_word(id)
     definitions = []
     @@definitions.values.each do |definition|
-      if definition.word_id == id
+      if self.word_id == id.to_i
         definitions.push(definition)
       end
     end
-    definitions
+    return definitions
   end
 
   # Instance Methods

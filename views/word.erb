@@ -5,11 +5,7 @@
 <% if @word.definitions.any? %>
     <ol>
       <% @word.definitions.each do |definition| %>
-        <li><%= definition.author %>
-          <ol>
             <li><%= definition.body %></li>
-          </ol>
-        </li>
       <% end %>
     </ol>
   <% else %>
@@ -18,11 +14,8 @@
 
   <h4>Add a definition:</h4>
 
-  <form action="/words/<%= @word.id %>/definitions" method="definition">
+  <form action="/words/<%= @word.id %>/definitions" method="post">
   <div class="form-group">
-    <label for="author">definition name</label>
-    <input id="author" name="author" class="form-control" type="text">
-    <label for="body">Body</label>
     <textarea name="body" rows="8" cols="80" class="form-control"></textarea>
   </div>
   <button type="submit" class="btn">Add definition</button>
