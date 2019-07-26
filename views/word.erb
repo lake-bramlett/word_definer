@@ -1,4 +1,5 @@
 <h4><%= @word.name %></h4>
+<p><a href="/word/<%= @word.id %>/edit">Edit <%= @word.name %></a></p>
 
 <h3>Definitions:</h3>
 
@@ -6,6 +7,8 @@
     <ol>
       <% @word.definitions.each do |definition| %>
             <li><%= definition.body %></li>
+            <a href="">Like</a>
+            <a href="">Delete</a>
       <% end %>
     </ol>
   <% else %>
@@ -21,5 +24,4 @@
   <button type="submit" class="btn">Add definition</button>
 </form>
 
-<p><a href="/word/<%= @word.id %>/edit">Edit Word</a></p>
 <a href="/">Return to word list</a>
