@@ -23,4 +23,14 @@ describe '#Definition' do
       expect(test_def.body).to(eq("to cause to appear different from the reality"))
     end
   end
+
+  describe('.delete') do
+    it("deletes a pre-existing definition") do
+      test_def = Definition.new(:body => "to cause to appear different from the reality")
+      test_def.delete
+      @definitions = Definition.all
+      expect(@definitions).to(eq([]))
+    end
+  end
+  
 end
