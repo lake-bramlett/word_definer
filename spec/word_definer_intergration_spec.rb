@@ -12,3 +12,13 @@ describe('create word path', {:type => :feature}) do
     expect(page).to have_content("Hippopotamus")
   end
 end
+
+describe('create definition path', {:type => :feature}) do
+  it('creates a definition for a given word') do
+    visit('/')
+    click_link('Hippopotamus')
+    fill_in('body', :with => "a large, semi-aquatic land mamman native to Africa.")
+    click_on('Add definition')
+    expect(page).to have_content("a large, semi-aquatic land mamman native to Africa.")
+  end
+end
