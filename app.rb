@@ -50,3 +50,11 @@ post ('/words/:id/definitions') do
   erb(:word)
   redirect to("/words/#{params[:id]}")
 end
+
+delete ('/words/:id') do
+  @word = Word.find(params[:id].to_i())
+  @word.delete()
+  @words = Word.all
+  redirect to('/')
+  erb(:index)
+end
