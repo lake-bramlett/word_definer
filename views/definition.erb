@@ -1,0 +1,7 @@
+<form action="/words/<%= @definition.word_id %>/definition/<%= @definition.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete</button>
+</form>
+
+<a href="/words/<%= @definition.word_id %>">Back</a>

@@ -7,6 +7,7 @@
     <ol>
       <% @word.definitions.each do |definition| %>
             <li><%= definition.body %></li>
+            <a href="/words/<%= @word.id %>/definitions/<%= definition.id %>">Edit</a>
       <% end %>
     </ol>
   <% else %>
