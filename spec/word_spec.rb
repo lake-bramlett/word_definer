@@ -16,4 +16,12 @@ describe '#Word' do
     end
   end
 
+  describe('.edit') do
+    it("edits a word's name") do
+      test_word = Word.new(:name => "colour")
+      test_word.edit(:name => "color")
+      expect(test_word.name).to(eq("color"))
+    end
+  end
+
 end

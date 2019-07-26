@@ -29,11 +29,11 @@ class Word
     @@words[self.id] = self
   end
 
-  def edit(name)
-     self.name = name
-   end
+  def edit(attributes)
+     self.name = attributes.fetch(:name)
+  end
 
-   def delete
-     @@words.delete(self.id)
-   end
+  def delete
+    @@words.delete(self.id)
+  end
 end
