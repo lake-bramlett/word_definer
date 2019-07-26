@@ -7,14 +7,6 @@
     <ol>
       <% @word.definitions.each do |definition| %>
             <li><%= definition.body %></li>
-            <form class="btn" action="index.html" method="post">
-              <input name="_method" type="hidden" value="patch">
-              <button type="button" name="like">Like!</button>
-            </form>
-            <form class="btn" action="/words/<%= @word.id %>/definitions" method="post">
-              <input name="_method" type="hidden" value="delete">
-              <button type="button" name="like">Delete</button>
-            </form>
       <% end %>
     </ol>
   <% else %>
