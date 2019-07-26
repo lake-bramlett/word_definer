@@ -1,6 +1,6 @@
 class Definition
   attr_reader :id
-  attr_accessor :body
+  attr_accessor :body, :word_id
 
   @@definitions = {}
   @@total_rows = 0
@@ -26,14 +26,16 @@ class Definition
   end
 
   def self.find_by_word(id)
-    definitions = []
+    definitions_array = []
     @@definitions.values.each do |definition|
-      if self.word_id == id.to_i
-        definitions.push(definition)
+      if definition.word_id == id
+        puts "condition met"
+        definitions_array.push(definition)
       end
     end
-    return definitions
+    return definitions_array
   end
+
 
   # Instance Methods
   def add
