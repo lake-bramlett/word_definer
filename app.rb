@@ -20,7 +20,19 @@ get ('/words/new') do
 end
 
 get ('/words/:id') do
-  @word = Word.find(:id)
+  @word = Word.find(params[:id].to_i())
+  erb(:word)
+end
+
+get ('/word/:id/edit') do
+  @word = Word.find(params[:id].to_i())
+  erb(:word_edit)
+end
+
+patch ('/words/:id') do
+  @word = Word.find(params[:id].to_i())
+  @word.edit(:name => params[:name])
+  erb(:word)
 end
 
 post ('/') do
