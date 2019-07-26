@@ -5,6 +5,6 @@ require('pry')
 also_reload('lib/**/*.rb')
 
 get ('/') do
-  @boards = Board.all
+  @words = Word.all
   erb(:index)
 end
