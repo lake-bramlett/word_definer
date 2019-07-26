@@ -36,6 +36,10 @@ patch ('/words/:id') do
   erb(:word)
 end
 
+patch ('/words/:id/definitions') do
+
+end
+
 post ('/') do
   word = Word.new(:name => params[:name])
   word.add
@@ -47,6 +51,7 @@ post ('/words/:id/definitions') do
   @word = Word.find(params[:id].to_i())
   definition = Definition.new(:body => params[:body], :word_id => @word.id)
   definition.add
+  binding.pry
   erb(:word)
   redirect to("/words/#{params[:id]}")
 end
@@ -57,4 +62,12 @@ delete ('/words/:id') do
   @words = Word.all
   redirect to('/')
   erb(:index)
+
+  delete ('/words/:id/definitions/') do
+    definition = Word.find(params[:id].to_i()).definitions
+    definition.delete
+    @word = Word.find(params[:id].to_i())
+    erb(:word)
+    redirect to("/words/#{params[:id]}")
+  end
 end
