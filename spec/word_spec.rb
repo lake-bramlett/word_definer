@@ -24,4 +24,14 @@ describe '#Word' do
     end
   end
 
+  describe('.delete') do
+    it("deletes a word") do
+      test_word = Word.new(:name => "colour")
+      test_word.add
+      test_word.delete
+      @words = Word.all
+      expect(@words).to(eq([]))
+    end
+  end
+
 end
